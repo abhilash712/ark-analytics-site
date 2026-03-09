@@ -99,7 +99,29 @@ text-decoration:none;
 }
 
 </style>
+.chatbot-icon{
+position:fixed;
+right:15px;
+bottom:90px;
+width:70px;
+z-index:9999;
+}
 
+.chat-window{
+position:fixed;
+right:10px;
+bottom:120px;
+width:90%;
+max-width:320px;
+background:white;
+border-radius:12px;
+box-shadow:0 0 25px rgba(0,0,0,0.4);
+display:none;
+flex-direction:column;
+overflow:hidden;
+z-index:9999;
+color:black;
+}
 </head>
 
 <body>
@@ -172,6 +194,27 @@ MASTER DATA & ANALYTICS
 <a href="#">Contact</a>
 
 </div>
+<!-- CHATBOT ICON -->
+<img src="chatbot - Copy.png" class="chatbot-icon" onclick="toggleChat()">
 
+<!-- CHAT WINDOW -->
+
+<div class="chat-window" id="chatWindow">
+
+<div class="chat-header">
+ARK AI Assistant
+<span style="float:right;cursor:pointer;" onclick="toggleChat()">✖</span>
+</div>
+
+<div class="chat-body" id="chatBody">
+👋 Hello! Welcome to ARK Analytics Academy.
+</div>
+
+<div class="chat-input">
+<input type="text" id="userInput" placeholder="Type your message...">
+<button onclick="sendMessage()">Send</button>
+</div>
+
+</div>
 </body>
 </html>
