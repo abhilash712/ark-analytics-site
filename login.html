@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<title>ARK Analytics Academy Login</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:url("login-bg.png") center/cover no-repeat;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:flex-start;
+padding-left:120px;
+}
+
+.login-box{
+width:380px;
+padding:35px;
+background:rgba(20,20,40,0.75);
+border-radius:15px;
+backdrop-filter:blur(12px);
+box-shadow:0 0 30px rgba(0,255,255,0.4);
+color:white;
+}
+
+input{
+width:100%;
+padding:12px;
+margin-top:10px;
+border-radius:8px;
+border:none;
+}
+
+button{
+width:100%;
+padding:12px;
+margin-top:15px;
+border:none;
+border-radius:8px;
+background:linear-gradient(90deg,#00e5ff,#9c27ff);
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+/* MOBILE VERSION */
+
+@media (max-width:768px){
+
+body{
+justify-content:center;
+padding-left:0;
+}
+
+.login-box{
+width:90%;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="login-box">
+
+<h2>STUDENT ACCESS PORTAL</h2>
+
+<input type="text" placeholder="Phone Number">
+
+<button>Get OTP</button>
+
+<h3>VERIFY WITH OTP</h3>
+
+<input type="text" placeholder="OTP Code">
+
+<button>Verify & Login</button>
+
+<p style="text-align:center;color:cyan;">Resend OTP Code</p>
+
+</div>
+
+</body>
+
+</html>
