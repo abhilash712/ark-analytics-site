@@ -72,15 +72,6 @@ width:200px;
 width:150px;
 }
 
-/* CHATBOT */
-
-.chatbot{
-position:fixed;
-right:10px;
-bottom:90px;
-width:130px;
-}
-
 /* FOOTER */
 
 .footer{
@@ -98,19 +89,23 @@ margin:0 10px;
 text-decoration:none;
 }
 
-</style>
+/* CHATBOT ICON */
+
 .chatbot-icon{
 position:fixed;
 right:15px;
-bottom:90px;
-width:70px;
+bottom:80px;
+width:65px;
 z-index:9999;
+cursor:pointer;
 }
+
+/* CHAT WINDOW */
 
 .chat-window{
 position:fixed;
 right:10px;
-bottom:120px;
+bottom:140px;
 width:90%;
 max-width:320px;
 background:white;
@@ -122,6 +117,49 @@ overflow:hidden;
 z-index:9999;
 color:black;
 }
+
+/* CHAT HEADER */
+
+.chat-header{
+background:#0a1f44;
+color:white;
+padding:10px;
+font-weight:bold;
+}
+
+/* CHAT BODY */
+
+.chat-body{
+height:220px;
+padding:10px;
+overflow-y:auto;
+background:#f4f6fb;
+font-size:14px;
+}
+
+/* CHAT INPUT */
+
+.chat-input{
+display:flex;
+border-top:1px solid #ddd;
+}
+
+.chat-input input{
+flex:1;
+padding:8px;
+border:none;
+}
+
+.chat-input button{
+background:#0a1f44;
+color:white;
+border:none;
+padding:8px 12px;
+cursor:pointer;
+}
+
+</style>
+
 </head>
 
 <body>
@@ -129,11 +167,8 @@ color:black;
 <!-- HEADER -->
 
 <div class="header">
-
 <img src="logo - Copy.jpeg">
-
 <b>ARK Analytics Academy</b>
-
 </div>
 
 <div class="title">
@@ -173,29 +208,13 @@ MASTER DATA & ANALYTICS
 <!-- QR -->
 
 <div class="qrbox">
-
 <p>Scan to Enroll</p>
-
 <img src="qr-code.png">
-
 </div>
 
-<!-- CHATBOT -->
-
-<img src="chatbot - Copy.png" class="chatbot">
-
-<!-- FOOTER -->
-
-<div class="footer">
-
-<a href="#">Home</a>
-<a href="#">About</a>
-<a href="#">Privacy</a>
-<a href="#">Contact</a>
-
-</div>
 <!-- CHATBOT ICON -->
-<img src="chatbot - Copy.png" class="chatbot-icon" onclick="toggleChat()">
+
+<img src="chatbot - Copy.png" class="chatbot-icon" onclick="toggleChat()" ontouchstart="toggleChat()">
 
 <!-- CHAT WINDOW -->
 
@@ -216,5 +235,84 @@ ARK AI Assistant
 </div>
 
 </div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Privacy</a>
+<a href="#">Contact</a>
+</div>
+
+<script>
+
+let step = 1;
+let username = "";
+
+function toggleChat(){
+let chat=document.getElementById("chatWindow");
+
+if(chat.style.display==="flex"){
+chat.style.display="none";
+}else{
+chat.style.display="flex";
+}
+}
+
+function sendMessage(){
+
+let input=document.getElementById("userInput");
+let body=document.getElementById("chatBody");
+
+let text=input.value.toLowerCase();
+
+body.innerHTML += "<p><b>You:</b> "+text+"</p>";
+
+let reply="";
+
+if(step===1){
+reply="Hello 👋 What is your name?";
+step=2;
+}
+
+else if(step===2){
+username=text;
+reply="Hi "+username+"! Are you a student or working professional?";
+step=3;
+}
+
+else if(step===3){
+
+if(text.includes("student")){
+reply="Great! As a student you can start learning Data Analytics with us.";
+}else{
+reply="Nice! Upskilling in analytics will boost your career.";
+}
+
+reply += "<br><br>We teach Python, SQL, Tableau, Power BI, Alteryx and Advanced Excel.";
+
+step=4;
+}
+
+else if(step===4){
+reply="Please scan the QR code above to enroll.";
+step=5;
+}
+
+else if(step===5){
+reply="For further details call 📞 8309434566 or email 📧 aabhilash712@gmail.com.";
+}
+
+body.innerHTML += "<p><b>ARK AI:</b> "+reply+"</p>";
+
+body.scrollTop = body.scrollHeight;
+
+input.value="";
+
+}
+
+</script>
+
 </body>
 </html>
