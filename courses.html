@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
 <meta charset="UTF-8">
@@ -10,29 +11,105 @@
 <style>
 
 body{
-font-family:Arial;
 margin:0;
-background:#0a1f44;
+font-family:Arial;
+background:url("background - Copy.png") center/cover no-repeat;
 color:white;
-text-align:center;
 }
 
+/* HEADER */
+
 .header{
-background:#071733;
+background:rgba(10,20,60,0.9);
 padding:15px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
 }
+
+.header img{
+height:40px;
+}
+
+.title{
+text-align:center;
+margin-top:30px;
+font-size:32px;
+text-shadow:0 0 15px cyan;
+}
+
+/* COURSE GRID */
 
 .course-grid{
 display:grid;
-grid-template-columns:repeat(3,1fr);
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:30px;
 padding:40px;
+max-width:1100px;
+margin:auto;
 }
+
+/* COURSE CARD */
 
 .course{
 background:rgba(255,255,255,0.08);
 padding:20px;
-border-radius:12px;
+border-radius:16px;
+backdrop-filter:blur(8px);
+box-shadow:0 0 25px rgba(0,255,255,0.25);
+text-align:left;
+}
+
+.course h3{
+margin-top:0;
+text-shadow:0 0 8px cyan;
+}
+
+.course p{
+font-size:14px;
+line-height:1.5;
+}
+
+/* ENROLL BUTTON */
+
+.enroll-btn{
+margin-top:15px;
+display:inline-block;
+background:linear-gradient(90deg,#00e5ff,#9c27ff);
+padding:8px 16px;
+border-radius:8px;
+text-decoration:none;
+color:white;
+font-size:14px;
+}
+
+/* CONTACT LINKS */
+
+.contact{
+margin-top:10px;
+font-size:14px;
+}
+
+.contact a{
+color:#00e5ff;
+text-decoration:none;
+}
+
+/* FOOTER */
+
+.footer{
+margin-top:40px;
+background:rgba(10,20,60,0.9);
+padding:15px;
+text-align:center;
+}
+
+.footer a{
+color:white;
+margin:0 10px;
+text-decoration:none;
+font-size:14px;
 }
 
 </style>
@@ -41,19 +118,142 @@ border-radius:12px;
 
 <body>
 
+<!-- HEADER -->
+
 <div class="header">
-<h2>ARK Analytics Academy Courses</h2>
+<img src="logo - Copy.jpeg">
+<b>ARK Analytics Academy</b>
 </div>
+
+<div class="title">
+Explore Our Data Analytics Courses
+</div>
+
+<!-- COURSE GRID -->
 
 <div class="course-grid">
 
-<div class="course">Python</div>
-<div class="course">SQL</div>
-<div class="course">Tableau</div>
-<div class="course">Power BI</div>
-<div class="course">Alteryx</div>
-<div class="course">Advanced Excel</div>
+<div class="course">
 
+<h3>Python for Data Analytics</h3>
+
+<p>
+Learn Python programming for data analysis including data cleaning,
+visualization and automation using Pandas, NumPy and Matplotlib.
+</p>
+
+<a href="qr-code.png" class="enroll-btn" target="_blank">Enroll</a>
+
+<div class="contact">
+📞 <a href="tel:+918309434566">8309434566</a><br>
+✉️ <a href="mailto:aabhilash712@gmail.com">Email Us</a>
+</div>
+
+</div>
+
+
+<div class="course">
+
+<h3>SQL for Data Analysis</h3>
+
+<p>
+Master SQL queries including joins, aggregations, window functions
+and real world database analysis.
+</p>
+
+<a href="qr-code.png" class="enroll-btn" target="_blank">Enroll</a>
+
+<div class="contact">
+📞 <a href="tel:+918309434566">8309434566</a><br>
+✉️ <a href="mailto:aabhilash712@gmail.com">Email Us</a>
+</div>
+
+</div>
+
+
+<div class="course">
+
+<h3>Tableau Visualization</h3>
+
+<p>
+Build professional dashboards and visualizations using Tableau and
+learn data storytelling techniques.
+</p>
+
+<a href="qr-code.png" class="enroll-btn" target="_blank">Enroll</a>
+
+<div class="contact">
+📞 <a href="tel:+918309434566">8309434566</a><br>
+✉️ <a href="mailto:aabhilash712@gmail.com">Email Us</a>
+</div>
+
+</div>
+
+
+<div class="course">
+
+<h3>Power BI Analytics</h3>
+
+<p>
+Create interactive dashboards using Power BI, data modeling and
+DAX calculations.
+</p>
+
+<a href="qr-code.png" class="enroll-btn" target="_blank">Enroll</a>
+
+<div class="contact">
+📞 <a href="tel:+918309434566">8309434566</a><br>
+✉️ <a href="mailto:aabhilash712@gmail.com">Email Us</a>
+</div>
+
+</div>
+
+
+<div class="course">
+
+<h3>Alteryx Data Automation</h3>
+
+<p>
+Learn data preparation, blending and automation workflows using
+Alteryx Designer.
+</p>
+
+<a href="qr-code.png" class="enroll-btn" target="_blank">Enroll</a>
+
+<div class="contact">
+📞 <a href="tel:+918309434566">8309434566</a><br>
+✉️ <a href="mailto:aabhilash712@gmail.com">Email Us</a>
+</div>
+
+</div>
+
+
+<div class="course">
+
+<h3>Advanced Excel for Analytics</h3>
+
+<p>
+Master Excel dashboards, pivot tables, advanced formulas and
+business analytics techniques.
+</p>
+
+<a href="qr-code.png" class="enroll-btn" target="_blank">Enroll</a>
+
+<div class="contact">
+📞 <a href="tel:+918309434566">8309434566</a><br>
+✉️ <a href="mailto:aabhilash712@gmail.com">Email Us</a>
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
 </div>
 
 </body>
