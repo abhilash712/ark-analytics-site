@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<title>ARK Analytics Mobile Dashboard</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#0a1f44;
+color:white;
+}
+
+/* TOP BAR */
+
+.topbar{
+height:60px;
+background:#061636;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 15px;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:8px;
+}
+
+.logo img{
+width:30px;
+}
+
+.profile{
+display:flex;
+align-items:center;
+gap:6px;
+}
+
+.profile img{
+width:30px;
+height:30px;
+border-radius:50%;
+}
+
+/* CONTENT */
+
+.content{
+padding:20px;
+}
+
+/* AI BOX */
+
+.ai-box{
+background:rgba(255,255,255,0.08);
+padding:20px;
+border-radius:14px;
+box-shadow:0 0 15px rgba(0,255,255,0.25);
+}
+
+.ai-search{
+width:100%;
+padding:10px;
+border-radius:8px;
+border:none;
+margin-top:10px;
+}
+
+/* AI RESULT */
+
+.ai-result{
+margin-top:15px;
+background:#061636;
+padding:15px;
+border-radius:8px;
+min-height:60px;
+}
+
+/* COURSE CARDS */
+
+.card{
+background:rgba(255,255,255,0.08);
+padding:15px;
+border-radius:10px;
+margin-top:15px;
+}
+
+button{
+margin-top:8px;
+padding:8px 10px;
+border:none;
+border-radius:6px;
+background:linear-gradient(90deg,#00e5ff,#9c27ff);
+color:white;
+}
+
+/* PROGRESS */
+
+.progress-bar{
+width:100%;
+height:8px;
+background:#333;
+border-radius:10px;
+margin-top:5px;
+}
+
+.progress-fill{
+width:60%;
+height:100%;
+background:cyan;
+border-radius:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+
+<div class="topbar">
+
+<div class="logo">
+<img src="logo - Copy.jpeg">
+<b>ARK</b>
+</div>
+
+<div class="profile">
+<span>Abhi</span>
+<img src="student.png">
+</div>
+
+</div>
+
+<!-- CONTENT -->
+
+<div class="content">
+
+<h2>Welcome Back 👋</h2>
+
+<!-- AI ASSISTANT -->
+
+<div class="ai-box">
+
+<h3>ARK AI Assistant</h3>
+
+<input class="ai-search"
+placeholder="Ask about Alteryx workflows...">
+
+<div class="ai-result">
+AI answers will appear here.
+</div>
+
+</div>
+
+<!-- MAIN COURSE -->
+
+<h3 style="margin-top:25px;">Main Program</h3>
+
+<div class="card">
+<h4>Alteryx Automation</h4>
+<p>Main course</p>
+<button>Continue</button>
+</div>
+
+<!-- OTHER COURSES -->
+
+<h3 style="margin-top:25px;">Other Skills</h3>
+
+<div class="card">
+<h4>Python Analytics</h4>
+<button>Open</button>
+</div>
+
+<div class="card">
+<h4>SQL Fundamentals</h4>
+<button>Open</button>
+</div>
+
+<div class="card">
+<h4>Tableau Visualization</h4>
+<button>Open</button>
+</div>
+
+<div class="card">
+<h4>Power BI</h4>
+<button>Open</button>
+</div>
+
+<!-- PROGRESS -->
+
+<h3 style="margin-top:25px;">Learning Progress</h3>
+
+<p>Alteryx Automation</p>
+
+<div class="progress-bar">
+<div class="progress-fill"></div>
+</div>
+
+</div>
+
+</body>
+</html>

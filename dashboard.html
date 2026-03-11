@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<title>ARK Analytics Dashboard</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#0a1f44;
+color:white;
+display:flex;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+width:240px;
+height:100vh;
+background:#061636;
+position:fixed;
+left:0;
+top:0;
+padding-top:20px;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+padding:10px 20px;
+margin-bottom:40px;
+}
+
+.logo img{
+width:40px;
+}
+
+.sidebar a{
+display:block;
+padding:12px 25px;
+color:white;
+text-decoration:none;
+font-size:14px;
+}
+
+.sidebar a:hover{
+background:#0a1f44;
+}
+
+/* MAIN AREA */
+
+.main{
+margin-left:240px;
+width:100%;
+}
+
+/* TOPBAR */
+
+.topbar{
+height:60px;
+background:rgba(10,20,60,0.9);
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 30px;
+}
+
+.search{
+width:300px;
+padding:8px;
+border:none;
+border-radius:8px;
+}
+
+.profile{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.profile img{
+width:36px;
+height:36px;
+border-radius:50%;
+}
+
+/* CONTENT */
+
+.content{
+padding:40px;
+}
+
+/* AI WORKSPACE */
+
+.ai-box{
+background:rgba(255,255,255,0.08);
+padding:25px;
+border-radius:16px;
+box-shadow:0 0 20px rgba(0,255,255,0.25);
+}
+
+.ai-search{
+width:100%;
+padding:12px;
+border:none;
+border-radius:10px;
+margin-top:10px;
+font-size:15px;
+}
+
+/* AI RESULT AREA */
+
+.ai-result{
+margin-top:20px;
+background:#061636;
+padding:20px;
+border-radius:10px;
+min-height:80px;
+}
+
+/* COURSE CARDS */
+
+.cards{
+display:flex;
+flex-wrap:wrap;
+gap:25px;
+margin-top:30px;
+}
+
+.card{
+width:240px;
+background:rgba(255,255,255,0.08);
+padding:20px;
+border-radius:12px;
+box-shadow:0 0 15px rgba(0,255,255,0.2);
+}
+
+button{
+margin-top:10px;
+padding:8px 12px;
+border:none;
+border-radius:6px;
+background:linear-gradient(90deg,#00e5ff,#9c27ff);
+color:white;
+cursor:pointer;
+}
+
+/* PROGRESS */
+
+.progress-section{
+margin-top:40px;
+}
+
+.progress-bar{
+width:300px;
+height:10px;
+background:#333;
+border-radius:10px;
+margin-top:5px;
+}
+
+.progress-fill{
+width:60%;
+height:100%;
+background:cyan;
+border-radius:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<div class="logo">
+<img src="logo - Copy.jpeg">
+<b>ARK Academy</b>
+</div>
+
+<a href="#">Dashboard</a>
+<a href="#">My Courses</a>
+<a href="#">Progress</a>
+<a href="#">AI Workspace</a>
+<a href="#">Settings</a>
+<a href="index.html">Logout</a>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main">
+
+<!-- TOPBAR -->
+
+<div class="topbar">
+
+<input class="search" placeholder="Search lessons, tools, workflows...">
+
+<div class="profile">
+<span>Abhilash</span>
+<img src="student.png">
+</div>
+
+</div>
+
+<!-- CONTENT -->
+
+<div class="content">
+
+<h1>Welcome Back 👋</h1>
+
+<p>Continue mastering Automation & Analytics.</p>
+
+<!-- AI WORKSPACE -->
+
+<div class="ai-box">
+
+<h2>ARK AI Assistant</h2>
+
+<input class="ai-search" placeholder="Ask anything about Alteryx workflows...">
+
+<div class="ai-result">
+
+AI answers will appear here when students search.
+
+</div>
+
+</div>
+
+<!-- COURSES -->
+
+<h2 style="margin-top:40px;">Your Courses</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Alteryx Automation</h3>
+<p>Main Program</p>
+<button>Continue</button>
+</div>
+
+<div class="card">
+<h3>Python for Analytics</h3>
+<button>Open</button>
+</div>
+
+<div class="card">
+<h3>SQL Fundamentals</h3>
+<button>Open</button>
+</div>
+
+<div class="card">
+<h3>Tableau Visualization</h3>
+<button>Open</button>
+</div>
+
+<div class="card">
+<h3>Power BI Analytics</h3>
+<button>Open</button>
+</div>
+
+</div>
+
+<!-- PROGRESS -->
+
+<div class="progress-section">
+
+<h2>Learning Progress</h2>
+
+<p>Alteryx Automation</p>
+
+<div class="progress-bar">
+<div class="progress-fill"></div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
