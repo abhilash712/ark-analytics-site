@@ -1,6 +1,6 @@
-import smtplib
+import resend
 import os
-from email.mime.text import MIMEText
+
 
 from fastapi import FastAPI
 from pydantic import BaseModel
@@ -17,9 +17,8 @@ Base.metadata.create_all(bind=engine)
 app = FastAPI()
 load_dotenv()
 
+resend.api_key = os.getenv("RESEND_API_KEY")
 
-EMAIL_USER = os.getenv("EMAIL_USER")
-EMAIL_PASS = os.getenv("EMAIL_PASS")
 
 # enable CORS
 app.add_middleware(
@@ -102,19 +101,18 @@ otp_store = {}
 # function to send email OTP
 def send_email_otp(to_email, otp):
 
-    subject = "ARK Analytics Academy Login OTP"
-    body = f"Your login OTP is: {otp}"
+    params = {
+        "from": "ARK Analytics <onboarding@resend.dev>",
+        "to": [to_email],
+        "subject": "ARK Analytics Academy Login OTP",
+        "html": f"""
+        <h2>Your OTP is: {otp}</h2>
+        <p>Use this code to login to ARK Analytics Academy.</p>
+        <p>This OTP will expire soon.</p>
+        """
+    }
 
-    msg = MIMEText(body)
-    msg["Subject"] = subject
-    msg["From"] = EMAIL_USER
-    msg["To"] = to_email
-
-    server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
-    server.login(EMAIL_USER, EMAIL_PASS)
-
-    server.sendmail(EMAIL_USER, to_email, msg.as_string())
-    server.quit()
+    resend.Emails.send(params)
 
 
 # SEND OTP (EMAIL)
