@@ -49,8 +49,6 @@ font-size:16px;
 cursor:pointer;
 }
 
-/* MOBILE VERSION */
-
 @media (max-width:768px){
 
 body{
@@ -74,22 +72,66 @@ width:90%;
 
 <h2>STUDENT ACCESS PORTAL</h2>
 
-<input type="text" placeholder="Phone Number">
+<input type="email" id="email" placeholder="Enter your email">
 
-<button>Get OTP</button>
+<button onclick="sendOTP()">Get OTP</button>
 
 <h3>VERIFY WITH OTP</h3>
 
-<input type="text" placeholder="OTP Code">
+<input type="text" id="otp" placeholder="Enter OTP">
 
-<button onclick="window.location.href='dashboard.html'">
-Verify & Login
-</button>
+<button onclick="verifyOTP()">Verify & Login</button>
 
-<p style="text-align:center;color:cyan;">Resend OTP Code</p>
+<p id="message" style="text-align:center;color:cyan;"></p>
 
 </div>
 
-</body>
+<script>
 
+const API_URL = "http://127.0.0.1:8000"
+
+async function sendOTP(){
+
+let email = document.getElementById("email").value
+
+let response = await fetch(API_URL + "/send-otp",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({email:email})
+})
+
+let data = await response.json()
+
+document.getElementById("message").innerText = data.status
+}
+
+async function verifyOTP(){
+
+let email = document.getElementById("email").value
+let otp = document.getElementById("otp").value
+
+let response = await fetch(API_URL + "/verify-otp",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({email:email, otp:otp})
+})
+
+let data = await response.json()
+
+if(data.status === "success"){
+window.location.href="dashboard.html"
+}
+else{
+document.getElementById("message").innerText="Invalid OTP"
+}
+
+}
+
+</script>
+
+</body>
 </html>
