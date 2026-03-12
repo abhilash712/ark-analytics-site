@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,46 +12,66 @@
 
 body{
 margin:0;
-font-family:Arial;
+font-family:Arial, Helvetica, sans-serif;
 background:url("background - Copy.png") center/cover no-repeat;
 color:white;
 text-align:center;
 }
-<div class="login-box">
-
-<h2>Student Login</h2>
-
-<input type="email" id="email" placeholder="Enter your email">
-
-<button onclick="sendOTP()">Get OTP</button>
-
-<input type="text" id="otp" placeholder="Enter OTP">
-
-<button onclick="verifyOTP()">Verify & Login</button>
-
-<p id="message"></p>
-
-</div>
 
 /* HEADER */
 
 .header{
 background:rgba(10,20,60,0.9);
-padding:15px;
+padding:10px 15px;
 display:flex;
 align-items:center;
-justify-content:flex-start;
-gap:10px;
+justify-content:space-between;
+position:relative;
 }
 
-.header img{
-height:35px;
+.logo-section{
+display:flex;
+align-items:center;
+gap:8px;
+position:absolute;
+left:50%;
+transform:translateX(-50%);
 }
+
+.logo-section img{
+height:34px;
+}
+
+.logo-text{
+font-size:15px;
+font-weight:bold;
+}
+
+.login-btn{
+background:cyan;
+color:black;
+padding:6px 14px;
+border-radius:20px;
+font-size:12px;
+text-decoration:none;
+font-weight:bold;
+}
+
+/* TAGLINE */
+
+.tagline{
+text-align:center;
+font-size:13px;
+opacity:0.9;
+margin-top:6px;
+}
+
+/* TITLE */
 
 .title{
-font-size:28px;
-margin-top:20px;
-text-shadow:0 0 15px cyan;
+font-size:24px;
+margin:18px 10px;
+text-shadow:0 0 12px cyan;
 }
 
 /* COURSE GRID */
@@ -58,33 +79,32 @@ text-shadow:0 0 15px cyan;
 .course-grid{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:20px;
-padding:25px;
+gap:18px;
+padding:18px;
 }
 
 .course-card{
-background:rgba(255,255,255,0.08);
-border-radius:14px;
-padding:10px;
-box-shadow:0 0 20px rgba(0,255,255,0.2);
+display:flex;
+justify-content:center;
+align-items:center;
+height:110px;
 }
 
 .course-card img{
-width:100%;
+max-width:90%;
+max-height:100%;
+object-fit:contain;
 }
 
 /* QR */
 
 .qrbox{
-margin:30px auto;
-background:rgba(255,255,255,0.15);
-padding:15px;
-border-radius:15px;
-width:200px;
+margin:20px auto 80px auto;
+width:180px;
 }
 
 .qrbox img{
-width:150px;
+width:140px;
 }
 
 /* FOOTER */
@@ -94,30 +114,33 @@ position:fixed;
 bottom:0;
 width:100%;
 background:rgba(10,20,60,0.9);
-padding:14px;
-
+padding:12px;
 display:flex;
 justify-content:space-around;
-align-items:center;
-
 font-size:14px;
 }
 
 .footer a{
 color:white;
-margin:0 10px;
 text-decoration:none;
 }
 
 /* CHATBOT ICON */
 
+@keyframes blinkAI{
+0%{transform:scale(1);}
+50%{transform:scale(1.08);}
+100%{transform:scale(1);}
+}
+
 .chatbot-icon{
 position:fixed;
 right:15px;
-bottom:80px;
+bottom:70px;
 width:65px;
-z-index:9999;
 cursor:pointer;
+z-index:9999;
+animation:blinkAI 2s infinite;
 }
 
 /* CHAT WINDOW */
@@ -125,7 +148,7 @@ cursor:pointer;
 .chat-window{
 position:fixed;
 right:10px;
-bottom:140px;
+bottom:130px;
 width:90%;
 max-width:320px;
 background:white;
@@ -138,16 +161,12 @@ z-index:9999;
 color:black;
 }
 
-/* CHAT HEADER */
-
 .chat-header{
 background:#0a1f44;
 color:white;
 padding:10px;
 font-weight:bold;
 }
-
-/* CHAT BODY */
 
 .chat-body{
 height:220px;
@@ -156,8 +175,6 @@ overflow-y:auto;
 background:#f4f6fb;
 font-size:14px;
 }
-
-/* CHAT INPUT */
 
 .chat-input{
 display:flex;
@@ -187,11 +204,26 @@ cursor:pointer;
 <!-- HEADER -->
 
 <div class="header">
+
+<div></div>
+
+<div class="logo-section">
 <img src="logo - Copy.jpeg">
-<b>ARK Analytics Academy</b>
+<div class="logo-text">ARK Analytics Academy</div>
+</div>
 
 <a href="login.html" class="login-btn">Login</a>
 
+</div>
+
+<div class="tagline">
+Empowering Your Data Future
+</div>
+
+<!-- TITLE -->
+
+<div class="title">
+Master the Language of Data & Analytics
 </div>
 
 <!-- COURSES -->
@@ -328,58 +360,10 @@ body.innerHTML += "<p><b>ARK AI:</b> "+reply+"</p>";
 body.scrollTop = body.scrollHeight;
 
 input.value="";
-
 }
 
 </script>
-<script>
 
-const API_URL = "https://ark-backened.onrender.com";
-
-async function sendOTP(){
-
-let email = document.getElementById("email").value;
-
-let response = await fetch(API_URL + "/send-otp",{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify({email:email})
-});
-
-let data = await response.json();
-
-document.getElementById("message").innerText = data.status;
-}
-
-async function verifyOTP(){
-
-let email = document.getElementById("email").value;
-let otp = document.getElementById("otp").value;
-
-let response = await fetch(API_URL + "/verify-otp",{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify({
-email:email,
-otp:otp
-})
-});
-
-let data = await response.json();
-
-if(data.status === "success"){
-window.location.href="mobile-dashboard.html";
-}
-else{
-document.getElementById("message").innerText="Invalid OTP";
-}
-
-}
-
-</script>
 </body>
 </html>
+```

@@ -107,74 +107,90 @@ text-shadow:0 0 20px cyan;
 .top-panels{
 display:flex;
 justify-content:center;
-gap:180px;
-margin-top:70px;
+gap:80px;
+margin-top:50px;
+position:relative;
 }
 
 .panel{
-width:260px;
-height:220px;
+width:300px;
+height:260px;
 display:flex;
 align-items:center;
 justify-content:center;
-background:rgba(255,255,255,0.06);
-border-radius:16px;
-backdrop-filter:blur(6px);
-box-shadow:
-0 10px 40px rgba(0,0,0,0.6),
-0 0 30px rgba(0,255,255,0.25);
+
+background:transparent;
+box-shadow:none;
+border:none;
+
+overflow:hidden;
+
 transform:perspective(900px) rotateX(6deg);
-padding:10px;
 animation:floatPanel 6s ease-in-out infinite;
 }
 
+.bottom-panels .panel:first-child{
+margin-right:-120px;
+}
+
+.bottom-panels .panel:last-child{
+margin-left:480px;
+}
+
 @keyframes floatPanel{
-0%{ transform:perspective(900px) rotateX(6deg) translateY(0px); }
-50%{ transform:perspective(900px) rotateX(6deg) translateY(-6px); }
-100%{ transform:perspective(900px) rotateX(6deg) translateY(0px); }
+0%{ transform:translateY(0px) perspective(900px) rotateX(6deg); }
+50%{ transform:translateY(-6px) perspective(900px) rotateX(6deg); }
+100%{ transform:translateY(0px) perspective(900px) rotateX(6deg); }
 }
 
 .panel img{
-width:100%;
+height:250px;
+width:auto;
 object-fit:contain;
+display:block;
 }
+
+/* enlarge small icons */
+
+
 
 /* PERSON */
 
 .person{
 position:absolute;
-bottom:230px;
+bottom:260px;
 left:50%;
 transform:translateX(-50%);
 height:200px;
 mix-blend-mode:multiply;
+z-index:3;
 }
 
 /* BOTTOM PANELS */
 
 .bottom-panels{
 position:absolute;
-bottom:80px;
-left:50%;
-transform:translateX(-50%);
+bottom:40px;
+width:100%;
 display:flex;
+justify-content:center;
 align-items:center;
-gap:160px;
+gap:140px;
 }
 
 /* QR CARD */
 
 .qrbox{
-width:240px;
+width:280px;
 height:220px;
-background:rgba(255,255,255,0.15);
-border-radius:20px;
+background:transparent;
+border-radius:0;
 display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:center;
-backdrop-filter:blur(10px);
-box-shadow:0 0 35px rgba(255,255,255,0.35);
+backdrop-filter:none;
+box-shadow:none;
 }
 
 .qrbox img{
@@ -187,15 +203,26 @@ text-align:center;
 margin-bottom:8px;
 }
 
+.qrbox{
+position:absolute;
+left:50%;
+transform:translateX(-50%);
+}
 /* CHATBOT ICON */
 
 .chatbot-icon{
 position:fixed;
 right:25px;
-bottom:90px;
-width:180px;
+bottom:80px;
+width:200px;
 cursor:pointer;
 z-index:9999;
+animation:blinkAI 2s infinite;
+}
+@keyframes blinkAI{
+0%{transform:scale(1);}
+50%{transform:scale(1.08);}
+100%{transform:scale(1);}
 }
 
 /* CHAT WINDOW */
@@ -286,10 +313,21 @@ MASTER THE LANGUAGE OF DATA & ANALYTICS
 
 <div class="top-panels">
 
-<div class="panel"><img src="alteryx.png"></div>
-<div class="panel"><img src="python.png"></div>
-<div class="panel"><img src="tableau.png"></div>
-<div class="panel"><img src="powerbi.png"></div>
+<div class="panel alteryx">
+<img src="alteryx.png">
+</div>
+
+<div class="panel">
+<img src="python.png" class="big-icon">
+</div>
+
+<div class="panel">
+<img src="tableau.png">
+</div>
+
+<div class="panel">
+<img src="powerbi.png">
+</div>
 
 </div>
 
