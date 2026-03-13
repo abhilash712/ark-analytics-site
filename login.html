@@ -4,60 +4,114 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>ARK Analytics Academy Login</title>
 
 <style>
 
+/* BODY */
+
 body{
 margin:0;
-font-family:Arial;
+font-family:Arial, Helvetica, sans-serif;
 background:url("login-bg.png") center/cover no-repeat;
-height:100vh;
+min-height:100vh;
+
 display:flex;
 align-items:center;
 justify-content:flex-start;
+
 padding-left:120px;
 }
 
+/* LOGIN CARD */
+
 .login-box{
+
 width:380px;
 padding:35px;
+
 background:rgba(20,20,40,0.75);
 border-radius:15px;
+
 backdrop-filter:blur(12px);
-box-shadow:0 0 30px rgba(0,255,255,0.4);
+
+box-shadow:0 0 30px rgba(0,255,255,0.35);
+
 color:white;
 }
+
+/* TITLE */
+
+.login-box h2{
+margin-top:0;
+text-align:center;
+}
+
+/* INPUTS */
 
 input{
 width:100%;
 padding:12px;
 margin-top:10px;
+
 border-radius:8px;
 border:none;
+
+font-size:14px;
 }
+
+/* BUTTON */
 
 button{
 width:100%;
 padding:12px;
+
 margin-top:15px;
+
 border:none;
 border-radius:8px;
+
 background:linear-gradient(90deg,#00e5ff,#9c27ff);
+
 color:white;
 font-size:16px;
+
 cursor:pointer;
 }
+
+/* MESSAGE */
+
+#message{
+text-align:center;
+color:cyan;
+margin-top:10px;
+}
+
+/* ---------------- MOBILE RESPONSIVE ---------------- */
 
 @media (max-width:768px){
 
 body{
 justify-content:center;
-padding-left:0;
+padding:20px;
 }
 
 .login-box{
-width:90%;
+
+width:100%;
+max-width:360px;
+
+padding:25px;
+}
+
+.login-box h2{
+font-size:20px;
+}
+
+button{
+font-size:15px;
 }
 
 }
@@ -76,13 +130,13 @@ width:90%;
 
 <button onclick="sendOTP()">Get OTP</button>
 
-<h3>VERIFY WITH OTP</h3>
+<h3 style="text-align:center;">VERIFY WITH OTP</h3>
 
 <input type="text" id="otp" placeholder="Enter OTP">
 
 <button onclick="verifyOTP()">Verify & Login</button>
 
-<p id="message" style="text-align:center;color:cyan;"></p>
+<p id="message"></p>
 
 </div>
 
@@ -105,6 +159,7 @@ body:JSON.stringify({email:email})
 let data = await response.json()
 
 document.getElementById("message").innerText = data.status
+
 }
 
 async function verifyOTP(){
