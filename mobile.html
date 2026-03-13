@@ -9,7 +9,6 @@
 
 <style>
 
-
 /* BODY */
 
 body{
@@ -18,7 +17,7 @@ font-family:Arial, Helvetica, sans-serif;
 color:white;
 }
 
-/* BACKGROUND IMAGE */
+/* BACKGROUND */
 
 .background{
 position:fixed;
@@ -43,8 +42,6 @@ padding:10px 12px;
 background:rgba(6,15,45,0.95);
 }
 
-/* LOGO AREA */
-
 .logo-area{
 display:flex;
 align-items:center;
@@ -61,14 +58,10 @@ font-weight:bold;
 line-height:1.2;
 }
 
-/* TAGLINE */
-
 .tagline{
 font-size:11px;
 opacity:0.85;
 }
-
-/* LOGIN BUTTON */
 
 .login-btn{
 background:#00e6ff;
@@ -79,9 +72,8 @@ font-size:12px;
 font-weight:bold;
 text-decoration:none;
 }
-/* HERO TEXT */
 
-/* HERO TEXT */
+/* HERO */
 
 .hero-text{
 text-align:center;
@@ -90,13 +82,10 @@ font-weight:400;
 letter-spacing:1px;
 line-height:1.5;
 padding:40px 25px;
-color:white;
-text-shadow:
-0px 0px 8px rgba(0,0,0,0.7),
-0px 0px 15px rgba(0,0,0,0.6);
+text-shadow:0 0 10px rgba(0,0,0,0.7);
 }
 
-/* COURSE SECTION */
+/* COURSES */
 
 .courses{
 width:100%;
@@ -106,8 +95,6 @@ align-items:center;
 margin-top:20px;
 }
 
-/* COURSE BOX IMAGE */
-
 .course-box{
 width:90%;
 max-width:340px;
@@ -116,12 +103,12 @@ border-radius:12px;
 box-shadow:0 0 20px rgba(0,255,255,0.25);
 }
 
-/* QR SECTION */
+/* QR */
 
 .qr-section{
 text-align:center;
 margin-top:20px;
-margin-bottom:80px;
+margin-bottom:100px;
 }
 
 .qr-title{
@@ -133,7 +120,6 @@ font-weight:bold;
 .qr-img{
 width:140px;
 border-radius:10px;
-box-shadow:0 0 15px rgba(0,255,255,0.4);
 }
 
 /* CHATBOT ICON */
@@ -147,13 +133,66 @@ box-shadow:0 0 15px rgba(0,255,255,0.4);
 .chatbot-icon{
 position:fixed;
 right:15px;
-bottom:20px;
-width:140px;
+bottom:80px;
+width:120px;
 cursor:pointer;
 z-index:999;
 animation:chatbotBlink 2s infinite;
 }
-/* MOBILE FOOTER */
+
+/* CHAT WINDOW */
+
+.chat-window{
+position:fixed;
+right:10px;
+bottom:150px;
+width:90%;
+max-width:320px;
+background:white;
+border-radius:12px;
+box-shadow:0 0 25px rgba(0,0,0,0.4);
+display:none;
+flex-direction:column;
+overflow:hidden;
+z-index:9999;
+color:black;
+}
+
+.chat-header{
+background:#0a1f44;
+color:white;
+padding:10px;
+font-weight:bold;
+}
+
+.chat-body{
+height:220px;
+padding:10px;
+overflow-y:auto;
+background:#f4f6fb;
+font-size:14px;
+}
+
+.chat-input{
+display:flex;
+border-top:1px solid #ddd;
+}
+
+.chat-input input{
+flex:1;
+padding:8px;
+border:none;
+}
+
+.chat-input button{
+background:#0a1f44;
+color:white;
+border:none;
+padding:8px 12px;
+cursor:pointer;
+}
+
+/* FOOTER */
 
 .mobile-footer{
 position:fixed;
@@ -169,34 +208,16 @@ font-size:14px;
 z-index:1000;
 }
 
-/* FOOTER LINKS */
-
 .mobile-footer a{
 color:white;
 text-decoration:none;
-font-weight:500;
 }
 
 </style>
 
 </head>
-<!-- MOBILE FOOTER -->
-
-<div class="mobile-footer">
-
-<a href="mobile.html">Home</a>
-
-<a href="mobile-about.html">About</a>
-
-<a href="mobile-privacy.html">Privacy</a>
-
-<a href="mobile-contact.html">Contact</a>
-
-</div>
 
 <body>
-
-<!-- BACKGROUND -->
 
 <div class="background"></div>
 
@@ -218,48 +239,121 @@ ARK ANALYTICS ACADEMY
 <a href="login.html" class="login-btn">Login</a>
 
 </div>
-<!-- CHATBOT -->
 
-<img src="chatbot - Copy.png" class="chatbot-icon">
-
-</body>
-</html>
-
-<!-- HERO HEADLINE -->
+<!-- HERO -->
 
 <div class="hero-text">
 
-BUILDING   FUTURE<br>
+BUILDING FUTURE<br>
 LEADERS : WHERE<br>
 KNOWLEDGE MEETS<br>
-   APPLICATION
+APPLICATION
 
 </div>
 
-<!-- COURSE BOXES -->
+<!-- COURSES -->
 
 <div class="courses">
 
 <img src="alteryx-mobile.png" class="course-box">
-
 <img src="sql-mobile.png" class="course-box">
-
 <img src="python-mobile.png" class="course-box">
-
 <img src="tableau-mobile.png" class="course-box">
-
 <img src="powerbi-mobile.png" class="course-box">
-
 <img src="excel-mobile.png" class="course-box">
 
 </div>
 
-<!-- QR CODE -->
+<!-- QR -->
 
 <div class="qr-section">
-
 <div class="qr-title">Scan to Enroll</div>
-
 <img src="qr-code.png" class="qr-img">
+</div>
+
+<!-- CHATBOT ICON -->
+
+<img src="chatbot - Copy.png" class="chatbot-icon" onclick="toggleChat()" ontouchstart="toggleChat()">
+
+<!-- CHAT WINDOW -->
+
+<div class="chat-window" id="chatWindow">
+
+<div class="chat-header">
+ARK AI Assistant
+<span style="float:right;cursor:pointer;" onclick="toggleChat()">✖</span>
+</div>
+
+<div class="chat-body" id="chatBody">
+👋 Hello! Welcome to ARK Analytics Academy.
+</div>
+
+<div class="chat-input">
+<input type="text" id="userInput" placeholder="Type your message...">
+<button onclick="sendMessage()">Send</button>
+</div>
 
 </div>
+
+<!-- FOOTER -->
+
+<div class="mobile-footer">
+<a href="mobile.html">Home</a>
+<a href="mobile-about.html">About</a>
+<a href="mobile-privacy.html">Privacy</a>
+<a href="mobile-contact.html">Contact</a>
+</div>
+
+<script>
+
+let step = 0;
+let username = "";
+
+function toggleChat(){
+let chat=document.getElementById("chatWindow");
+
+if(chat.style.display==="flex"){
+chat.style.display="none";
+}else{
+chat.style.display="flex";
+}
+}
+
+async function sendMessage(){
+
+let input=document.getElementById("userInput");
+let body=document.getElementById("chatBody");
+
+let text=input.value;
+
+body.innerHTML += "<p><b>You:</b> "+text+"</p>";
+
+let response = await fetch("https://ark-backened.onrender.com/chat",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+text:text,
+step:step,
+name:username
+})
+});
+
+let data = await response.json();
+
+body.innerHTML += "<p><b>ARK AI:</b> "+data.reply+"</p>";
+
+step = data.step;
+username = data.name;
+
+body.scrollTop = body.scrollHeight;
+
+input.value="";
+
+}
+
+</script>
+
+</body>
+</html>
