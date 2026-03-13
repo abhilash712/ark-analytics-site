@@ -78,7 +78,6 @@ text-decoration:none;
 .hero-text{
 text-align:center;
 font-size:20px;
-font-weight:400;
 letter-spacing:1px;
 line-height:1.5;
 padding:40px 25px;
@@ -188,7 +187,7 @@ border:none;
 background:#0a1f44;
 color:white;
 border:none;
-padding:8px 12px;
+padding:8px 10px;
 cursor:pointer;
 }
 
@@ -273,7 +272,7 @@ APPLICATION
 
 <!-- CHATBOT ICON -->
 
-<img src="chatbot - Copy.png" class="chatbot-icon" onclick="toggleChat()" ontouchstart="toggleChat()">
+<img src="chatbot - Copy.png" class="chatbot-icon" onclick="toggleChat()">
 
 <!-- CHAT WINDOW -->
 
@@ -285,12 +284,18 @@ ARK AI Assistant
 </div>
 
 <div class="chat-body" id="chatBody">
-👋 Hello! Welcome to ARK Analytics Academy.
+👋 Hello! Welcome to ARK Analytics Academy.<br>
+You can type or tap 🎤 to speak.
 </div>
 
 <div class="chat-input">
-<input type="text" id="userInput" placeholder="Type your message...">
+
+<input type="text" id="userInput" placeholder="Type or speak..." onkeypress="if(event.key==='Enter'){sendMessage()}">
+
+<button onclick="startVoice()">🎤</button>
+
 <button onclick="sendMessage()">Send</button>
+
 </div>
 
 </div>
@@ -310,14 +315,54 @@ let step = 0;
 let username = "";
 
 function toggleChat(){
+
 let chat=document.getElementById("chatWindow");
 
-if(chat.style.display==="flex"){
-chat.style.display="none";
-}else{
-chat.style.display="flex";
+chat.style.display = chat.style.display==="flex" ? "none" : "flex";
+
 }
+
+/* VOICE INPUT */
+
+function startVoice(){
+
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+if(!SpeechRecognition){
+alert("Voice not supported in this browser");
+return;
 }
+
+const recognition = new SpeechRecognition();
+
+recognition.lang = "en-US";
+recognition.start();
+
+recognition.onresult = function(event){
+
+let speech = event.results[0][0].transcript;
+
+document.getElementById("userInput").value = speech;
+
+sendMessage();
+
+};
+
+}
+
+/* SPEAK BOT RESPONSE */
+
+function speak(text){
+
+const speech = new SpeechSynthesisUtterance(text);
+
+speech.lang = "en-US";
+
+speechSynthesis.speak(speech);
+
+}
+
+/* SEND MESSAGE */
 
 async function sendMessage(){
 
@@ -325,6 +370,8 @@ let input=document.getElementById("userInput");
 let body=document.getElementById("chatBody");
 
 let text=input.value;
+
+if(text.trim()==="") return;
 
 body.innerHTML += "<p><b>You:</b> "+text+"</p>";
 
@@ -343,6 +390,8 @@ name:username
 let data = await response.json();
 
 body.innerHTML += "<p><b>ARK AI:</b> "+data.reply+"</p>";
+
+speak(data.reply);
 
 step = data.step;
 username = data.name;
