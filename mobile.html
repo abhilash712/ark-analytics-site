@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,360 +9,257 @@
 
 <style>
 
+
+/* BODY */
+
 body{
 margin:0;
 font-family:Arial, Helvetica, sans-serif;
-background:url("background - Copy.png") center/cover no-repeat;
 color:white;
-text-align:center;
+}
+
+/* BACKGROUND IMAGE */
+
+.background{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background-image:url("background_for_mobile.png");
+background-size:cover;
+background-position:center top;
+background-repeat:no-repeat;
+z-index:-1;
 }
 
 /* HEADER */
 
 .header{
-background:rgba(10,20,60,0.9);
-padding:10px 15px;
 display:flex;
-align-items:center;
 justify-content:space-between;
-position:relative;
+align-items:center;
+padding:10px 12px;
+background:rgba(6,15,45,0.95);
 }
 
-.logo-section{
+/* LOGO AREA */
+
+.logo-area{
 display:flex;
 align-items:center;
 gap:8px;
-position:absolute;
-left:50%;
-transform:translateX(-50%);
 }
 
-.logo-section img{
+.logo-area img{
 height:34px;
 }
 
 .logo-text{
-font-size:15px;
+font-size:14px;
 font-weight:bold;
-}
-
-.login-btn{
-background:cyan;
-color:black;
-padding:6px 14px;
-border-radius:20px;
-font-size:12px;
-text-decoration:none;
-font-weight:bold;
+line-height:1.2;
 }
 
 /* TAGLINE */
 
 .tagline{
-text-align:center;
-font-size:13px;
-opacity:0.9;
-margin-top:6px;
+font-size:11px;
+opacity:0.85;
 }
 
-/* TITLE */
+/* LOGIN BUTTON */
 
-.title{
-font-size:24px;
-margin:18px 10px;
-text-shadow:0 0 12px cyan;
-}
-
-/* COURSE GRID */
-
-.course-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:18px;
-padding:18px;
-}
-
-.course-card{
-display:flex;
-justify-content:center;
-align-items:center;
-height:150px;
-}
-
-.course-card img{
-max-width:90%;
-max-height:100%;
-object-fit:contain;
-}
-
-/* QR */
-
-.qrbox{
-margin:20px auto 80px auto;
-width:180px;
-}
-
-.qrbox img{
-width:140px;
-}
-
-/* FOOTER */
-
-.footer{
-position:fixed;
-bottom:0;
-width:100%;
-background:rgba(10,20,60,0.9);
-padding:12px;
-display:flex;
-justify-content:space-around;
-font-size:14px;
-}
-
-.footer a{
-color:white;
+.login-btn{
+background:#00e6ff;
+color:black;
+padding:6px 14px;
+border-radius:18px;
+font-size:12px;
+font-weight:bold;
 text-decoration:none;
+}
+/* HERO TEXT */
+
+/* HERO TEXT */
+
+.hero-text{
+text-align:center;
+font-size:20px;
+font-weight:400;
+letter-spacing:1px;
+line-height:1.5;
+padding:40px 25px;
+color:white;
+text-shadow:
+0px 0px 8px rgba(0,0,0,0.7),
+0px 0px 15px rgba(0,0,0,0.6);
+}
+
+/* COURSE SECTION */
+
+.courses{
+width:100%;
+display:flex;
+flex-direction:column;
+align-items:center;
+margin-top:20px;
+}
+
+/* COURSE BOX IMAGE */
+
+.course-box{
+width:90%;
+max-width:340px;
+margin-bottom:18px;
+border-radius:12px;
+box-shadow:0 0 20px rgba(0,255,255,0.25);
+}
+
+/* QR SECTION */
+
+.qr-section{
+text-align:center;
+margin-top:20px;
+margin-bottom:80px;
+}
+
+.qr-title{
+font-size:16px;
+margin-bottom:10px;
+font-weight:bold;
+}
+
+.qr-img{
+width:140px;
+border-radius:10px;
+box-shadow:0 0 15px rgba(0,255,255,0.4);
 }
 
 /* CHATBOT ICON */
 
-@keyframes blinkAI{
+@keyframes chatbotBlink{
 0%{transform:scale(1);}
-50%{transform:scale(1.08);}
+50%{transform:scale(1.1);}
 100%{transform:scale(1);}
 }
 
 .chatbot-icon{
 position:fixed;
 right:15px;
-bottom:70px;
-width:110px;
+bottom:20px;
+width:140px;
 cursor:pointer;
-z-index:9999;
-animation:blinkAI 2s infinite;
+z-index:999;
+animation:chatbotBlink 2s infinite;
 }
+/* MOBILE FOOTER */
 
-/* CHAT WINDOW */
-
-.chat-window{
+.mobile-footer{
 position:fixed;
-right:10px;
-bottom:130px;
-width:90%;
-max-width:320px;
-background:white;
-border-radius:12px;
-box-shadow:0 0 25px rgba(0,0,0,0.4);
-display:none;
-flex-direction:column;
-overflow:hidden;
-z-index:9999;
-color:black;
-}
-
-.chat-header{
-background:#0a1f44;
-color:white;
-padding:10px;
-font-weight:bold;
-}
-
-.chat-body{
-height:220px;
-padding:10px;
-overflow-y:auto;
-background:#f4f6fb;
-font-size:14px;
-}
-
-.chat-input{
+bottom:0;
+left:0;
+width:100%;
+background:rgba(6,15,45,0.95);
 display:flex;
-border-top:1px solid #ddd;
+justify-content:space-around;
+align-items:center;
+padding:12px 0;
+font-size:14px;
+z-index:1000;
 }
 
-.chat-input input{
-flex:1;
-padding:8px;
-border:none;
-}
+/* FOOTER LINKS */
 
-.chat-input button{
-background:#0a1f44;
+.mobile-footer a{
 color:white;
-border:none;
-padding:8px 12px;
-cursor:pointer;
+text-decoration:none;
+font-weight:500;
 }
 
 </style>
 
 </head>
+<!-- MOBILE FOOTER -->
+
+<div class="mobile-footer">
+
+<a href="mobile.html">Home</a>
+
+<a href="mobile-about.html">About</a>
+
+<a href="mobile-privacy.html">Privacy</a>
+
+<a href="mobile-contact.html">Contact</a>
+
+</div>
 
 <body>
+
+<!-- BACKGROUND -->
+
+<div class="background"></div>
 
 <!-- HEADER -->
 
 <div class="header">
 
-<div></div>
+<div class="logo-area">
 
-<div class="logo-section">
 <img src="logo - Copy.jpeg">
-<div class="logo-text">ARK Analytics Academy</div>
+
+<div class="logo-text">
+ARK ANALYTICS ACADEMY
+<div class="tagline">Empowering Your Data Future</div>
+</div>
+
 </div>
 
 <a href="login.html" class="login-btn">Login</a>
 
 </div>
+<!-- CHATBOT -->
 
-<div class="tagline">
-Empowering Your Data Future
-</div>
-
-<!-- TITLE -->
-
-<div class="title">
-Master the Language of Data & Analytics
-</div>
-
-<!-- COURSES -->
-
-<div class="course-grid">
-
-<div class="course-card">
-<img src="alteryx.png">
-</div>
-
-<div class="course-card">
-<img src="python.png">
-</div>
-
-<div class="course-card">
-<img src="tableau.png">
-</div>
-
-<div class="course-card">
-<img src="powerbi.png">
-</div>
-
-<div class="course-card">
-<img src="sql.png">
-</div>
-
-<div class="course-card">
-<img src="excel.png">
-</div>
-
-</div>
-
-<!-- QR -->
-
-<div class="qrbox">
-<p>Scan to Enroll</p>
-<img src="qr-code.png">
-</div>
-
-<!-- CHATBOT ICON -->
-
-<img src="chatbot - Copy.png" class="chatbot-icon" onclick="toggleChat()" ontouchstart="toggleChat()">
-
-<!-- CHAT WINDOW -->
-
-<div class="chat-window" id="chatWindow">
-
-<div class="chat-header">
-ARK AI Assistant
-<span style="float:right;cursor:pointer;" onclick="toggleChat()">✖</span>
-</div>
-
-<div class="chat-body" id="chatBody">
-👋 Hello! Welcome to ARK Analytics Academy.
-</div>
-
-<div class="chat-input">
-<input type="text" id="userInput" placeholder="Type your message...">
-<button onclick="sendMessage()">Send</button>
-</div>
-
-</div>
-
-<!-- FOOTER -->
-
-<div class="footer">
-<a href="mobile.html">Home</a>
-<a href="mobile-about.html">About</a>
-<a href="mobile-privacy.html">Privacy</a>
-<a href="mobile-contact.html">Contact</a>
-</div>
-
-<script>
-
-let step = 1;
-let username = "";
-
-function toggleChat(){
-let chat=document.getElementById("chatWindow");
-
-if(chat.style.display==="flex"){
-chat.style.display="none";
-}else{
-chat.style.display="flex";
-}
-}
-
-function sendMessage(){
-
-let input=document.getElementById("userInput");
-let body=document.getElementById("chatBody");
-
-let text=input.value.toLowerCase();
-
-body.innerHTML += "<p><b>You:</b> "+text+"</p>";
-
-let reply="";
-
-if(step===1){
-reply="Hello 👋 What is your name?";
-step=2;
-}
-
-else if(step===2){
-username=text;
-reply="Hi "+username+"! Are you a student or working professional?";
-step=3;
-}
-
-else if(step===3){
-
-if(text.includes("student")){
-reply="Great! As a student you can start learning Data Analytics with us.";
-}else{
-reply="Nice! Upskilling in analytics will boost your career.";
-}
-
-reply += "<br><br>We teach Python, SQL, Tableau, Power BI, Alteryx and Advanced Excel.";
-
-step=4;
-}
-
-else if(step===4){
-reply="Please scan the QR code above to enroll.";
-step=5;
-}
-
-else if(step===5){
-reply="For further details call 📞 8309434566 or email 📧 aabhilash712@gmail.com.";
-}
-
-body.innerHTML += "<p><b>ARK AI:</b> "+reply+"</p>";
-
-body.scrollTop = body.scrollHeight;
-
-input.value="";
-}
-
-</script>
+<img src="chatbot - Copy.png" class="chatbot-icon">
 
 </body>
 </html>
-```
+
+<!-- HERO HEADLINE -->
+
+<div class="hero-text">
+
+BUILDING   FUTURE<br>
+LEADERS : WHERE<br>
+KNOWLEDGE MEETS<br>
+   APPLICATION
+
+</div>
+
+<!-- COURSE BOXES -->
+
+<div class="courses">
+
+<img src="alteryx-mobile.png" class="course-box">
+
+<img src="sql-mobile.png" class="course-box">
+
+<img src="python-mobile.png" class="course-box">
+
+<img src="tableau-mobile.png" class="course-box">
+
+<img src="powerbi-mobile.png" class="course-box">
+
+<img src="excel-mobile.png" class="course-box">
+
+</div>
+
+<!-- QR CODE -->
+
+<div class="qr-section">
+
+<div class="qr-title">Scan to Enroll</div>
+
+<img src="qr-code.png" class="qr-img">
+
+</div>
