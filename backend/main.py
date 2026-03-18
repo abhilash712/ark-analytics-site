@@ -255,4 +255,21 @@ def verify_otp(data: OTPVerify):
     return {
         "status": "success",
         "email": data.email
-    }
+    }# =====================================
+# LIVE CLASS INFO
+# =====================================
+
+# =====================================
+# LIVE CLASS INFO
+# =====================================
+
+live_class = {
+    "course": "Python Programming",
+    "instructor": "Manya Krishna",
+    "meet_link": "https://meet.google.com/zfy-gojb-zmi"
+}
+
+@app.get("/live-class")
+def get_live_class():
+    return live_class
+
