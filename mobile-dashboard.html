@@ -144,6 +144,21 @@ border-radius:10px;
 
 <h2>Welcome Back 👋</h2>
 
+<!-- LIVE CLASS -->
+
+<div class="card">
+
+<h4>Live Class</h4>
+
+<p id="liveCourse">Loading course...</p>
+<p id="liveInstructor"></p>
+
+<a id="liveJoin" target="_blank">
+<button>Join Live Class</button>
+</a>
+
+</div>
+
 <!-- AI ASSISTANT -->
 
 <div class="ai-box">
@@ -204,6 +219,23 @@ AI answers will appear here.
 </div>
 
 </div>
+<script>
 
+fetch("https://ark-backened.onrender.com/live-class")
+.then(res => res.json())
+.then(data => {
+
+document.getElementById("liveCourse").innerText =
+"Course: " + data.course;
+
+document.getElementById("liveInstructor").innerText =
+"Instructor: " + data.instructor;
+
+document.getElementById("liveJoin").href =
+data.meet_link;
+
+});
+
+</script>
 </body>
 </html>

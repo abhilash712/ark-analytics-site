@@ -222,18 +222,14 @@ border-radius:10px;
 
 <!-- LIVE CLASS -->
 
-<div style="background:rgba(255,255,255,0.08);
-padding:20px;
-border-radius:14px;
-margin-top:20px;
-box-shadow:0 0 15px rgba(0,255,255,0.25);">
+<div class="card" id="liveClassBox">
 
-<h2>Live Class</h2>
+<h3>Live Class</h3>
 
-<p><b>Course:</b> Python Programming</p>
-<p><b>Instructor:</b> Manya Krishna</p>
+<p id="liveCourse">Loading course...</p>
+<p id="liveInstructor"></p>
 
-<a href="https://meet.google.com/zfy-gojb-zmi" target="_blank">
+<a id="liveJoin" target="_blank">
 <button>Join Live Class</button>
 </a>
 
@@ -307,5 +303,33 @@ AI answers will appear here when students search.
 
 </div>
 
+<script>
+
+fetch("https://ark-backened.onrender.com/live-class")
+.then(res => res.json())
+.then(data => {
+
+document.getElementById("liveCourse").innerText =
+"Course: " + data.course
+
+document.getElementById("liveInstructor").innerText =
+"Instructor: " + data.instructor
+
+document.getElementById("liveJoin").href =
+data.meet_link
+
+})
+
+</script>
+
+<script>
+
+if (window.innerWidth < 768) {
+
+window.location.href = "mobile-dashboard.html";
+
+}
+
+</script>
 </body>
 </html>
