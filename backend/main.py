@@ -263,13 +263,25 @@ def verify_otp(data: OTPVerify):
 # LIVE CLASS INFO
 # =====================================
 
+# =====================================
+# LIVE CLASS SYSTEM
+# =====================================
+
+# Current live class information
 live_class = {
     "course": "Python Programming",
     "instructor": "Manya Krishna",
+    "time": "7:00 PM",
     "meet_link": "https://meet.google.com/zfy-gojb-zmi"
 }
 
+# API to get current live class
 @app.get("/live-class")
 def get_live_class():
-    return live_class
+    return {
+        "course": live_class["course"],
+        "instructor": live_class["instructor"],
+        "time": live_class["time"],
+        "meet_link": live_class["meet_link"]
+    }
 
